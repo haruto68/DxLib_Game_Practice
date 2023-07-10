@@ -3,7 +3,7 @@
 /********************************************
 * マクロ定義
 ********************************************/
-#define FREAM_RATE	(60U)
+
 
 /********************************************
 * 型定義
@@ -13,5 +13,6 @@
 /********************************************
 * プロトタイプ宣言
 ********************************************/
-void FreamControl_Initialize(void);
-void FreamControl_Update(void);
+int GameMainScene_Initialize(void);
+void GameMainScene_Update(void);
+void GameMainScene_Draw(void);
