@@ -42,7 +42,7 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
 	//ウィンドモードで起動
 	ChangeWindowMode(TRUE);
 	//画面サイズの最大サイズ,カラービット数を設定
-	SetGraphMode(SCREEN_HIGHT, SCREEN_WIDTH, SCREEN_COLORBIT);
+	SetGraphMode(SCREEN_WIDTH, SCREEN_HIGHT, SCREEN_COLORBIT);
 
 	//Dxライブラリの初期化処理
 	//エラーが発生したら、終了する
@@ -74,11 +74,17 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
 		//入力制御機能更新処理
 		Input_Update();
 
+		//シーンマネージャー更新処理
+		SceneManager_Update();
+
+		//画面クリア
+		ClearDrawScreen();
+
 		//シーンマネージャー描画処理
 		SceneManager_Draw();
 
 		//フレームレート制御処理
-		ScreenFlip();
+		FreamControl_Update();
 
 		//画面の内容を表画面に反映
 		ScreenFlip();
