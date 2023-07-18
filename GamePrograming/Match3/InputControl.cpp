@@ -19,7 +19,7 @@ int mouse_position_y;
 * 引数:なし
 * 戻り値:なし
 ********************************************/
-void Inpu_Initialize(void)
+void Input_Initialize(void)
 {
 	old_button = NULL;
 	now_button = NULL;
@@ -99,7 +99,7 @@ int GetNowKey(int key)
 * 引数:指定するマウスのボタン
 * 戻り値:TRUE(入力された),FALSE(未入力)
 ********************************************/
-int getKeyFlag(int Key)
+int GetKeyFlg(int Key)
 {
 	int ret = FALSE;
 	int keyflg = now_button & ~old_button;

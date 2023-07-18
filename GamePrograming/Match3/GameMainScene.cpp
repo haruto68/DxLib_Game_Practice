@@ -122,7 +122,7 @@ void GameMainScene_Update(void)
 * ˆø”:‚È‚µ
 * –ß‚è’l:‚È‚µ
 ********************************************/
-void GameScene_Draw(void)
+void GameMainScene_Draw(void)
 {
 	int PosX = 600;
 	int tmp_level = GameLevel;

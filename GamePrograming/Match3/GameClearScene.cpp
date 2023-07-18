@@ -80,7 +80,7 @@ void GameClearScene_Update(void)
 * à¯êî:Ç»Çµ
 * ñﬂÇËíl:Ç»Çµ
 ********************************************/
-void GameCleraScene_Draw(void)
+void GameClearScene_Draw(void)
 {
 	DrawGraph(0, 0, GameClearImage, FALSE);
 }

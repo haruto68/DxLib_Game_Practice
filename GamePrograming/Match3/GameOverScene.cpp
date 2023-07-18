@@ -19,7 +19,7 @@ int GameOverFlag;
 * 引数:なし
 * 戻り値:エラー情報
 ********************************************/
-int GameOverScene_Initialaize(void)
+int GameOverScene_Initialize(void)
 {
 	int ret = 0;
 
@@ -44,7 +44,7 @@ int GameOverScene_Initialaize(void)
 * 引数:なし
 * 戻り値:なし
 ********************************************/
-void GameOvereScene_Update(void)
+void GameOverScene_Update(void)
 {
 	//ゲームオーバー効果音再生チェック
 	if (CheckSoundMem(GameOverSE) == 0)

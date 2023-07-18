@@ -62,7 +62,7 @@ int MoveBlockSE;					//ブロック移動SE
 /********************************************
 * プロトタイプ宣言
 ********************************************/
-int combo_chek(int x, int y);
+int combo_check(int x, int y);
 void combo_check_h(int y, int x, int* cnt, int* col);
 void combo_check_w(int y, int x, int* cnt, int* col);
 void save_block(void);
@@ -227,7 +227,7 @@ void CreateBlock(void)
 		{
 			for (j = 1; j < WIDTH - 1; j++)
 			{
-				Check += combo_chek(i, j);
+				Check += combo_check(i, j);
 			}
 		}
 	} while (Check != 0);
@@ -305,8 +305,8 @@ void SelectBlock(void)
 
 		//連鎖が3つ以上か調べる。
 		Result = 0;
-		Result += combo_chek(Select[NEXT_CURSOR].y + 1, Select[NEXT_CURSOR].x + 1);
-		Result += combo_chek(Select[TMP_CURSOR].y + 1, Select[TMP_CURSOR].x + 1);
+		Result += combo_check(Select[NEXT_CURSOR].y + 1, Select[NEXT_CURSOR].x + 1);
+		Result += combo_check(Select[TMP_CURSOR].y + 1, Select[TMP_CURSOR].x + 1);
 
 		//連鎖が3未満なら選択ブロックを元に戻す
 		if (Result == 0)
@@ -427,7 +427,7 @@ void CheckBlock(void)
 	{
 		for (j = 1; j < WIDTH - 1; j++)
 		{
-			Result += combo_chek(i, j);
+			Result += combo_check(i, j);
 		}
 	}
 

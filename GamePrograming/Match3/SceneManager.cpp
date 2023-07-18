@@ -113,7 +113,7 @@ void SceneManager_Draw(void)
 	switch (Game_Mode)
 	{
 	case E_TITLE:
-		TitleScene_draw();
+		TitleScene_Draw();
 		break;
 	case E_GAMEMAIN:
 		GameMainScene_Draw();
