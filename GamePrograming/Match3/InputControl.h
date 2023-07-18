@@ -21,4 +21,4 @@ int GetOldKey(int key);
 int GetNowKey(int key);
 int GetKeyFlg(int key);
 int GetMousePositionX(void);
-int getMousePositionY(void);
+int GetMousePositionY(void);

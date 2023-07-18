@@ -118,7 +118,7 @@ int StageInitialize(void)
 	{
 		ret = -1;
 	}
-	if (FadeOutSE = -1)
+	if (FadeOutSE == -1)
 	{
 		ret = -1;
 	}
@@ -250,7 +250,7 @@ void SelectBlock(void)
 
 	//カーソルの描画
 	Select[SELECT_CURSOR].x = GetMousePositionX() / BLOCKSIZE;
-	Select[SELECT_CURSOR].y = getMousePositionY() / BLOCKSIZE;
+	Select[SELECT_CURSOR].y = GetMousePositionY() / BLOCKSIZE;
 
 	//選択ブロックの範囲を制御
 	if (Select[SELECT_CURSOR].x < 0)

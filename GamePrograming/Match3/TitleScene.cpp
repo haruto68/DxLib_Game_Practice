@@ -63,13 +63,13 @@ void TitleScene_Update(void)
 	if (GetKeyFlg(MOUSE_INPUT_LEFT) == TRUE)
 	{
 		if (GetMousePositionX() > 120 && GetMousePositionX() < 290 &&
-			getMousePositionY() > 260 && getMousePositionY() < 315)
+			GetMousePositionY() > 260 && GetMousePositionY() < 315)
 		{
 			Change_Scene(E_GAMEMAIN);
 			StopSoundMem(TitleBGM);
 		}
 		if (GetMousePositionX() > 120 && GetMousePositionX() < 220 &&
-			getMousePositionY() > 345 && getMousePositionY() < 400)
+			GetMousePositionY() > 345 && GetMousePositionY() < 400)
 		{
 			Change_Scene(E_END);
 			StopSoundMem(TitleBGM);
