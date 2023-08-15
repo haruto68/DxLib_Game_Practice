@@ -67,8 +67,8 @@ int GameMainScene_Initialize(void)
 	}
 	else
 	{
-		GameLevel++;			//ゲームレベルの更新
-		Set_StageMission(3);	//ミッションを増やす
+		//GameLevel++;			//ゲームレベルの更新
+		//Set_StageMission(3);	//ミッションを増やす
 	}
 	GameTime = TIMELIMIT;		//制限時間の初期化
 
@@ -112,6 +112,8 @@ void GameMainScene_Update(void)
 	//ミッションを達成したら、ゲームクリアに遷移する
 	if (Get_StageClearFlag())
 	{
+		GameLevel++;			//ゲームレベルの更新
+		Set_StageMission(3);	//ミッションを増やす
 		Change_Scene(E_GAME_CLEAR);
 	}
 
