@@ -6,7 +6,7 @@
 /********************************************
 * マクロ定義
 ********************************************/
-#define TIMELIMIT			(3600 * 3)	//制限時間
+#define TIMELIMIT			(4600 * 3)	//制限時間
 #define NUMBER_IMAGE_MAX	(10)		//数字画像数
 
 /********************************************
@@ -25,6 +25,9 @@ int GameCount;		//初期化されないようにするためのカウント
 int ReStartFlag;
 
 int NumberImage[NUMBER_IMAGE_MAX];
+
+int gameBGM;
+int a = 0;
 
 /********************************************
 * プロトタイプ宣言
@@ -72,6 +75,8 @@ int GameMainScene_Initialize(void)
 	}
 	GameTime = TIMELIMIT;		//制限時間の初期化
 
+	gameBGM = LoadSoundMem("sounds/てってってってー.mp3");
+
 	return ret;
 }
 
@@ -82,6 +87,12 @@ int GameMainScene_Initialize(void)
 ********************************************/
 void GameMainScene_Update(void)
 {
+	if (a != 1)
+	{
+		PlaySoundMem(gameBGM, DX_PLAYTYPE_BACK);
+		a = 1;
+	}
+
 	switch (Get_StageState())
 	{
 	case 0:
@@ -107,6 +118,9 @@ void GameMainScene_Update(void)
 	if (GameTime < 0)
 	{
 		Change_Scene(E_GAME_OVER);
+
+		StopSoundMem(gameBGM);
+		a = 0;
 	}
 
 	//ミッションを達成したら、ゲームクリアに遷移する
@@ -115,6 +129,9 @@ void GameMainScene_Update(void)
 		GameLevel++;			//ゲームレベルの更新
 		Set_StageMission(3);	//ミッションを増やす
 		Change_Scene(E_GAME_CLEAR);
+
+		StopSoundMem(gameBGM);
+		a = 0;
 	}
 
 }

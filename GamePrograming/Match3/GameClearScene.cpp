@@ -36,7 +36,7 @@ int GameClearScene_Initialize(void)
 	//画像の読込み
 	GameClearImage = LoadGraph("images/gameclear.png");
 	//音源の読込み
-	GameClearSE = LoadSoundMem("sounds/gameclear_se.mp3");
+	GameClearSE = LoadSoundMem("sounds/レベルアップ.mp3");
 
 	GameClearFlag = 0;
 

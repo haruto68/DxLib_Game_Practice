@@ -79,12 +79,12 @@ int StageInitialize(void)
 	int i;
 
 	//画像読込
-	LoadDivGraph("images/block.png", BLOCK_IMAGE_MAX, BLOCK_IMAGE_MAX, 1, BLOCKSIZE, BLOCKSIZE, BlockImage);
+	LoadDivGraph("images/x.png", BLOCK_IMAGE_MAX, BLOCK_IMAGE_MAX, 1, BLOCKSIZE, BLOCKSIZE, BlockImage);
 	StageImage = LoadGraph("images/stage.png");
 	//音源読込
-	ClickSE = LoadSoundMem("sounds/click_se.mp3");
-	FadeOutSE = LoadSoundMem("sounds/fadeout_se.mp3");
-	MoveBlockSE = LoadSoundMem("sounds/moveblock_se.mp3");
+	ClickSE = LoadSoundMem("sounds/ピッ.mp3");
+	FadeOutSE = LoadSoundMem("sounds/瞬間移動.mp3");
+	MoveBlockSE = LoadSoundMem("sounds/ダン.mp3");
 
 	//ブロック生成処理
 	CreateBlock();

@@ -33,7 +33,7 @@ int TitleScene_Initialize(void)
 	//画像読込処理
 	TitleImage = LoadGraph("images/title.png");
 	//音源読込
-	TitleBGM = LoadSoundMem("sounds/title_bgm.mp3");
+	TitleBGM = LoadSoundMem("sounds/テッテレレー.mp3");
 
 	if (TitleImage == D_ERROR)
 	{

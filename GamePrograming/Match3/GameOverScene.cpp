@@ -26,7 +26,7 @@ int GameOverScene_Initialize(void)
 	//画像読込
 	GameOverImage = LoadGraph("images/gameover.png");
 	//音源読込
-	GameOverSE = LoadSoundMem("sounds/gameover_se.mp3");
+	GameOverSE = LoadSoundMem("sounds/ゲームオーバー.mp3");
 
 	GameOverFlag = FALSE;
 
