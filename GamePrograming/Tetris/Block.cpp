@@ -87,7 +87,7 @@ const int C_BLOCK_TABLE[BLOCK_TYPE_MAX][BLOCK_TROUT_SIZE][BLOCK_TROUT_SIZE] = {
 };
 
 /***********************************************
-* 変数宣言
+* グローバル変数宣言
 ***********************************************/
 int BlockImage[E_BLOCK_IMAGE_MAX];							//ブロック画像
 BLOCK_STATE Filed[FIELD_HEIGHT][FILED_WIDTH];				//フィールド配列
