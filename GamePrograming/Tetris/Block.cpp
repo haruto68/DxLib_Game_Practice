@@ -27,14 +27,14 @@ enum BLOCK_STATE
 {
 	E_BLOCK_EMPTY,			//空ブロック
 	E_BLOCK_LIGHT_BLUE,		//水色
-	E_BLOCK_LIGHT_GREEN,	//黄緑
-	E_BLOCK_LIGHT_YELLOW,	//黄色
-	E_BLOCK_LIGHT_ORANGE,	//オレンジ
-	E_BLOCK_LIGHT_BLUE,		//青
-	E_BLOCK_LIGHT_PINK,		//ピンク
-	E_BLOCK_LIGHT_RED,		//赤
-	E_BLOCK_LIGHT_GRAY,		//灰色
-	E_BLOCK_WALL,		//壁
+	E_BLOCK_GREEN,			//黄緑
+	E_BLOCK_YELLOW,			//黄色
+	E_BLOCK_ORANGE,			//オレンジ
+	E_BLOCK_BLUE,			//青
+	E_BLOCK_PINK,			//ピンク
+	E_BLOCK_RED,			//赤
+	E_BLOCK_GRAY,			//灰色
+	E_BLOCK_WALL,			//壁
 	E_BLOCK_IMAGE_MAX,
 };
 
@@ -90,7 +90,7 @@ const int C_BLOCK_TABLE[BLOCK_TYPE_MAX][BLOCK_TROUT_SIZE][BLOCK_TROUT_SIZE] = {
 * グローバル変数宣言
 ***********************************************/
 int BlockImage[E_BLOCK_IMAGE_MAX];							//ブロック画像
-BLOCK_STATE Filed[FIELD_HEIGHT][FILED_WIDTH];				//フィールド配列
+BLOCK_STATE Field[FIELD_HEIGHT][FILED_WIDTH];				//フィールド配列
 BLOCK_STATE Next[BLOCK_TROUT_SIZE][BLOCK_TROUT_SIZE];		//待機状態のブロック
 BLOCK_STATE Stock[BLOCK_TROUT_SIZE][BLOCK_TROUT_SIZE];		//ストックのブロック
 BLOCK_STATE DropBlock[BLOCK_TROUT_SIZE][BLOCK_TROUT_SIZE];	//落ちるブロック
@@ -234,9 +234,9 @@ void Block_Draw(void)
 	{
 		for (j = 0; j < FILED_WIDTH; j++)
 		{
-			if (Filed[i][j] != E_BLOCK_WALL)
+			if (Field[i][j] != E_BLOCK_WALL)
 			{
-				DrawGraph(j * BLOCK_SIZE, i * BLOCK_SIZE, BlockImage[Filed[i][j]], TRUE);
+				DrawGraph(j * BLOCK_SIZE, i * BLOCK_SIZE, BlockImage[Field[i][j]], TRUE);
 			}
 		}
 	}
@@ -266,7 +266,7 @@ void Block_Draw(void)
 * 引数:なし
 * 戻り値:TRUE(ブロックの生成ができる),FALSE(生成不可)
 ***********************************************/
-int Get_Generate_Flg(void)
+int Get_GenerateFlg(void)
 {
 	return Generate_Flg;
 }
@@ -286,7 +286,7 @@ int Get_Line(void)
 * 引数:なし
 * 戻り値:なし
 ***********************************************/
-void creat_field(void)
+void create_field(void)
 {
 	int i, j;	//ループカウンタ
 
@@ -313,7 +313,7 @@ void creat_field(void)
 * 引数:なし
 * 戻り値:なし
 ***********************************************/
-void creat_block(void)
+void create_block(void)
 {
 	int i, j;		//ループカウンタ
 	int block_type;	//次に出現させるブロックタイプ
@@ -536,7 +536,7 @@ void lock_block(int x, int y)
 * 引数:なし
 * 戻り値:なし
 ***********************************************/
-void chack_line(void)
+void check_line(void)
 {
 	int i, j, k;	//ループカウンタ
 

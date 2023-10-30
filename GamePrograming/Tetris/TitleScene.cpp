@@ -39,7 +39,7 @@ int TitleScene_Initialize(void)
 
 	cursor_number = 0;
 
-	sounds[E_TITLE_BGM] = LoadSoundMem("sounds/BGM041/ogg");
+	sounds[E_TITLE_BGM] = LoadSoundMem("sounds/BGM041.ogg");
 	sounds[E_TITLE_SE_CURSOR] = LoadSoundMem("sounds/SE1.mp3");
 	sounds[E_TITLE_SE_SELECT] = LoadSoundMem("sounds/SE2.mp3");
 
@@ -91,7 +91,7 @@ void TitleScene_Update(void)
 
 	if (GetButtonDown(XINPUT_BUTTON_DPAD_UP) == TRUE)
 	{
-		PlaySoundMem(sounds[E_TITLE_SE_CURSOR, DX_PLAYTYPE_NORMAL, FALSE]);
+		PlaySoundMem(sounds[E_TITLE_SE_CURSOR], DX_PLAYTYPE_NORMAL, FALSE);
 		if (cursor_number <= 0)
 		{
 			cursor_number = 0;
@@ -129,5 +129,5 @@ void TitleScene_Draw(void)
 	DrawString(100, 400, "ƒGƒ“ƒh", GetColor(255, 255, 255));
 	SetFontSize(20);
 
-	DrawCircle(275, 325 + (cursor_number * 50), 15, GetColor(255, 0, 0));
+	DrawCircle(75, 325 + (cursor_number * 50), 15, GetColor(255, 0, 0));
 }

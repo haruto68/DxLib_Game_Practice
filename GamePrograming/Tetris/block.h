@@ -11,7 +11,7 @@
 /***********************************************
 * プロトタイプ宣言
 ***********************************************/
-int Block_initialze(void);		//初期化処理
+int Block_Initialize(void);		//初期化処理
 void Block_Update(void);		//更新処理
 void Block_Draw(void);			//描画処理
 

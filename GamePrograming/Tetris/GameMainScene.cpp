@@ -32,7 +32,7 @@ int GameMainScene_Initialize(void)
 {
 	int ret = 0;
 
-	ret = Block_intialze();
+	ret = Block_Initialize();
 	BackGround_image = LoadGraph("images/stage.png");
 	BackGround_sound = LoadSoundMem("sounds/BGM017.ogg");
 	GameOver_sound = LoadSoundMem("sounds/GameOver.mp3");
@@ -66,7 +66,7 @@ void GameMainScene_Update(void)
 	Score = Get_Line() * 50;
 
 	//ê∂ê¨Ç≈Ç´Ç»Ç≠Ç»Ç¡ÇΩÇÁ
-	if (Get_GenarateFlg() != TRUE)
+	if (Get_GenerateFlg() != TRUE)
 	{
 		PlaySoundMem(GameOver_sound, DX_PLAYTYPE_BACK, FALSE);
 		Change_Scene(E_RANKING);

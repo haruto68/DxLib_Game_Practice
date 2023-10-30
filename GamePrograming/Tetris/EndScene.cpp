@@ -23,7 +23,7 @@ int wait_count;
 * 引数:なし 
 * 戻り値:エラー情報(-1:異常有,-1以外:正常)
 ***********************************************/
-int EndScene_Intialize(void)
+int EndScene_Initialize(void)
 {
 	int ret = 0;
 

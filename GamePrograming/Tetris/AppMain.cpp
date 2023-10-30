@@ -54,7 +54,7 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
 	SceneManager_Initialize(E_TITLE);
 
 	//入力制御機能初期化処理
-	InputControl_Intialize();
+	InputControl_Initialize();
 
 	//描画先画面を裏にする
 	SetDrawScreen(DX_SCREEN_BACK);
@@ -66,7 +66,7 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
 	while (ProcessMessage() == 0 && GetExitButton() != TRUE && ErrorCheck() == D_NORMALITY)
 	{
 		//フレーム制御機能更新処理
-		Fream_Control_Update();
+		FreamControl_Update();
 
 		//画面の初期化
 		ClearDrawScreen();
