@@ -125,12 +125,12 @@ int Block_Initialize(void)
 	int i = 0;
 
 	//ブロック画像の読み込み
-	ret = LoadDivGraph("image/block.png", E_BLOCK_IMAGE_MAX, 10, 1, BLOCK_SIZE, BLOCK_SIZE, BlockImage);
+	ret = LoadDivGraph("images/block.png", E_BLOCK_IMAGE_MAX, 10, 1, BLOCK_SIZE, BLOCK_SIZE, BlockImage);
 
 	//SEの読み込み
 	SoundEffect[0] = LoadSoundMem("sounds/SE3.mp3");
 	SoundEffect[1] = LoadSoundMem("sounds/SE4.mp3");
-	SoundEffect[2] = LoadSoundMem("sounds/SE5.mp3");
+	SoundEffect[2] = LoadSoundMem("sounds/SE5.wav");
 
 	//音量の調整
 	ChangeVolumeSoundMem(150, SoundEffect[0]);
@@ -296,7 +296,7 @@ void create_field(void)
 		for (j = 0; j < FILED_WIDTH; j++)
 		{
 			//フィールド値の設定
-			if (j == 10 || j == FILED_WIDTH - 1 || i == FIELD_HEIGHT - 1)
+			if (j == 0 || j == FILED_WIDTH - 1 || i == FIELD_HEIGHT - 1)
 			{
 				Field[i][j] = E_BLOCK_WALL;		//壁状態にする
 			}
@@ -352,7 +352,7 @@ void move_block(void)
 	//左入力時
 	if (GetButtonDown(XINPUT_BUTTON_DPAD_LEFT))
 	{
-		if (check_overlap(DropBlock_X - 1, DropBlock_Y) == TRUE)
+		if (check_overlap(DropBlock_X-1, DropBlock_Y) == TRUE)
 		{
 			DropBlock_X--;
 		}
@@ -361,7 +361,7 @@ void move_block(void)
 	//右入力時
 	if (GetButtonDown(XINPUT_BUTTON_DPAD_RIGHT))
 	{
-		if (check_overlap(DropBlock_X + 1, DropBlock_Y) == TRUE)
+		if (check_overlap(DropBlock_X+1, DropBlock_Y) == TRUE)
 		{
 			DropBlock_X++;
 		}
@@ -379,7 +379,7 @@ void move_block(void)
 	//下入力時(ソフトドロップ処理)
 	if (GetButtonDown(XINPUT_BUTTON_DPAD_DOWN))
 	{
-		while (check_overlap(DropBlock_X, DropBlock_Y + 1) == TRUE)
+		if (check_overlap(DropBlock_X, DropBlock_Y + 1) == TRUE)
 		{
 			DropBlock_Y++;
 		}
@@ -414,7 +414,7 @@ void change_block(void)
 		Stock_Flg = TRUE;
 		for (i = 0; i < BLOCK_TROUT_SIZE; i++)
 		{
-			for (j = 0; BLOCK_TROUT_SIZE; j++)
+			for (j = 0; j < BLOCK_TROUT_SIZE; j++)
 			{
 				Stock[i][j] = DropBlock[i][j];
 			}
@@ -478,7 +478,7 @@ void turn_block(int clockwise)
 			DropBlock_X++;
 		}
 
-	} while (check_overlap(DropBlock_X, DropBlock_Y) == TRUE);
+	} while (check_overlap(DropBlock_X, DropBlock_Y) == FALSE);
 
 	PlaySoundMem(SoundEffect[2], DX_PLAYTYPE_BACK, TRUE);
 }
@@ -539,10 +539,11 @@ void lock_block(int x, int y)
 void check_line(void)
 {
 	int i, j, k;	//ループカウンタ
+	int n;			
 
 	for (i = 0; i < FIELD_HEIGHT - 1; i++)
 	{
-		for (j = 0; j < FILED_WIDTH; j++)
+		for (j = 0; j < FILED_WIDTH - 1; j++)
 		{
 			//行の途中が開いているか？
 			if (Field[i][j] == E_BLOCK_EMPTY)
@@ -550,22 +551,22 @@ void check_line(void)
 				break;
 			}
 		}
-	}
 
-	//一列そろっていたら、カウントを増やし、１段下げる
-	if (j >= FILED_WIDTH)
-	{
-		//カウント増加
-		DeleteLine++;
-
-		//１段下げる
-		for (k = i; k > 0; k--)
+		//一列そろっていたら、カウントを増やし、１段下げる
+		if (j >= FILED_WIDTH - 2)
 		{
-			for (j = 1; j < FILED_WIDTH; j++)
+			//カウント増加
+			DeleteLine++;
+
+			//１段下げる
+			for (k = i; k > 0; k--)
 			{
-				Field[k][j] = Field[k - 1][j];
+				for (j = 1; j < FILED_WIDTH; j++)
+				{
+					Field[k][j] = Field[k - 1][j];
+				}
 			}
+			PlaySoundMem(SoundEffect[0], DX_PLAYTYPE_BACK, TRUE);
 		}
-		PlaySoundMem(SoundEffect[0], DX_PLAYTYPE_BACK, TRUE);
 	}
 }
